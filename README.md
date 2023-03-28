@@ -16,7 +16,7 @@ First of all installation of adafruit / Adafruit_NeoPixel
 
 Next, installation of this library. Same operation of above installation.
 1. Go to the Releases page.
-1. Download [the latest release](https://github.com/MeiwaKota/NeoPixelPerformer/releases) (select ZIP type package).
+1. Download [the latest release](https://github.com/KotaMeiwa/NeoPixelPerformer/releases) (select ZIP type package).
 1. In the Arduino IDE, go to the menu "Sketch > Include Library > Add .ZIP Library"
 
 ## API
