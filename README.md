@@ -4,7 +4,7 @@ Making performance with NeoPixel LED strup on Arduino platform, this utilizes ad
 ## Version history
 | Version # | Release date  | Changes                                               |
 | ---        | ---         | ---                                                              |
-| Ver. 0.1.0     | 2022-07-20  | First release                                          |
+| Ver. 0.1.0     | 2023-05-01  | First release                                          |
 
 ## Installation
 **For minimum setup to use this library with adafruit / Adafruit_NeoPixel**
