@@ -1,15 +1,24 @@
 # NeoPixelPerformer
-Making performance with NeoPixel LED strup on Arduino platform, this utilizes adafruit / Adafruit_NeoPixel as a library for handling of NeoPixel.
+Making performance with NeoPixel LED strap on Arduino platform, this utilizes adafruit / Adafruit_NeoPixel as a library for handling of NeoPixel.
+If you use the library on Sony Spresense, nepils (library for handling NexPixel LED strap on the platform) is needed.
 
 ## Version history
 | Version # | Release date  | Changes                                               |
-| ---        | ---         | ---                                                              |
+| ---        | ---         | ---                                                    |
 | Ver. 0.1.0     | 2023-05-01  | First release                                          |
+| Ver. 0.2.0     | 2023-05-02  | Sony Spresense supported                              |
 
 ## Installation
-**For minimum setup to use this library with adafruit / Adafruit_NeoPixel**
+**For minimum setup to use this library on Sony Spresense**
 
-First of all installation of adafruit / Adafruit_NeoPixel
+Installation of nepils
+1. Go to the Releases page.
+1. Download [the latest release](https://github.com/KotaMeiwa/nepils/tags) (select ZIP type package).
+1. In the Arduino IDE, go to the menu "Sketch > Include Library > Add .ZIP Library"
+
+**For minimum setup to use this library on other Arduino platform**
+
+Installation of adafruit / Adafruit_NeoPixel
 1. Go to the Releases page.
 1. Download [the latest release](https://github.com/adafruit/Adafruit_NeoPixel/releases) (select ZIP type package).
 1. In the Arduino IDE, go to the menu "Sketch > Include Library > Add .ZIP Library"

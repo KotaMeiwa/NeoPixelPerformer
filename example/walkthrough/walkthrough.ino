@@ -1,10 +1,15 @@
 // SPDX-FileCopyrightText: 2023 Kota Meiwa
 // SPDX-License-Identifier: MIT
 
-#include <Adafruit_NeoPixel.h>	//managed by Adafruit
-#include <NeoPixelPerformer.h>
+#if defined(ARDUINO_ARCH_SPRESENSE) //for Sony Spresense environment
+  #include <Adafruit_NeoPixel_Spresense.h>	//managed by nepils
+  typedef Adafruit_NeoPixel_Spresense NEOPIXEL_CLASS;
+#else                               //Other Almost Arduino platforms are supported by Adafruit library
+  #include <Adafruit_NeoPixel.h>	          //managed by Adafruit
+  typedef Adafruit_NeoPixel NEOPIXEL_CLASS;
+#endif  //ARDUINO_ARCH_SPRESENSE
 
-typedef Adafruit_NeoPixel NEOPIXEL_CLASS;
+#include <NeoPixelPerformer.h>
 
 const uint16_t NUM_PIXELS = 16;
 const uint16_t PIN = 6;
