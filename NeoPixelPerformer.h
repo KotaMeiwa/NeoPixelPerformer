@@ -82,6 +82,62 @@ public:
             m_neopixel->show(), delay(step);
         }
     }
+
+    ///////////////////////
+    inline void center2edge(ulong duration, uint32_t color_front, uint32_t color_back=0, bool reverse=false){
+        bool center_2led = m_neopixel->numPixels()%2==0;
+        int cnt = m_neopixel->numPixels()/2 + (!center_2led? 1: 0);
+        ulong step = duration / (cnt+1);
+
+        m_neopixel->fill(!reverse? color_back: color_front);
+        m_neopixel->show(), delay(step);
+
+        uint16_t center = m_neopixel->numPixels()/2 - (center_2led? 1: 0);
+        
+        if(!reverse){
+            for(int i=0; i<cnt; i++){
+                m_neopixel->fill(color_front, center - i, 2*i + (center_2led? 2: 1));
+                m_neopixel->show(), delay(step);
+            }
+        }
+        else{
+            for(int i=0; i<cnt; i++){
+                m_neopixel->fill(color_back, 0, i + 1);
+                m_neopixel->fill(color_back, m_neopixel->numPixels()-1-i, i+1);
+                m_neopixel->show(), delay(step);
+            }
+        }
+    }
+
+    ///////////////////////
+    inline void fountain(ulong duration, uint16_t width, uint16_t gap, uint32_t color_front, uint32_t color_back=0, bool reverse=false){
+
+        //LED数偶数なら中心はLED 2つ。
+        uint16_t start_r = m_neopixel->numPixels()/2;
+        uint16_t start_l = start_r + (m_neopixel->numPixels()%2==0? -1: 0);
+
+        uint16_t total = width + gap;
+        
+        //関数繰り返しでも連続感があるように調整
+        int cnt = m_neopixel->numPixels() - start_r;
+        if(cnt%total)
+            cnt -= cnt%total;
+        
+        ulong step = duration / cnt;
+
+        for(int i=(!reverse? 0: cnt-1); !reverse? i<cnt: 0<=i; i+=(!reverse? 1: -1)){
+            m_neopixel->fill(color_back);
+
+            for(int led_l=start_l, led_r=start_r; 0<=led_l; led_l--, led_r++){
+                if((i + led_l)%total < width){
+                    m_neopixel->setPixelColor(led_l, color_front);
+                    m_neopixel->setPixelColor(led_r, color_front);
+                }
+            }
+
+            m_neopixel->show(), delay(step);
+        }
+    }
 };
 
 
