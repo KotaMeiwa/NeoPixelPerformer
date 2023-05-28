@@ -130,8 +130,8 @@ public:
 
             for(int led_l=start_l, led_r=start_r; 0<=led_l; led_l--, led_r++){
                 if((i + led_l)%total < width){
-                    m_neopixel->setPixelColor(led_l, color_front);
-                    m_neopixel->setPixelColor(led_r, color_front);
+                    m_neopixel->Adafruit_NeoPixel::setPixelColor(led_l, color_front);
+                    m_neopixel->Adafruit_NeoPixel::setPixelColor(led_r, color_front);
                 }
             }
 
