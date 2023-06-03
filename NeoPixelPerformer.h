@@ -24,6 +24,11 @@ public:
     
 public:
     ///////////////////////
+    inline void static_color(ulong interval, uint32_t color_front){
+        m_neopixel->fill(color_front), m_neopixel->show(), delay(interval);
+    }
+
+    ///////////////////////
     inline void blink(ulong interval, uint32_t color_front, uint32_t color_back = 0){
         m_neopixel->fill(color_front), m_neopixel->show(), delay(interval);
         m_neopixel->fill(color_back), m_neopixel->show(), delay(interval);
